@@ -17,6 +17,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - uses: r-lib/actions/setup-pandoc@v1
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
@@ -38,3 +39,10 @@ jobs:
       run: |
         pip install pytest
         pytest
+    - name: Packaging
+      run: |
+        python setup.py bdist_wheel
+        python setup.py sdist
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      path: dist
