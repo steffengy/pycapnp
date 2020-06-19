@@ -12,8 +12,8 @@ jobs:
       matrix:
         # Some asyncio commands require 3.7+
         # It may be possible to use 3.6 and maybe 3.5; however, this will take some patching to get examples to work
-        python-version: [3.7, 3.8]
-        os: [ubuntu-latest, macOS-latest, windows-latest]
+        python-version: [3.6]
+        os: [ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v2
